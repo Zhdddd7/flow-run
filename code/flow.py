@@ -152,7 +152,10 @@ if __name__ == "__main__":
     #         )
     #     ],
     # )
-    process_image.deploy(
+    process_image.from_source(
+        source="git+https://github.com/Zhdddd7/flow-run.git@main",
+        entrypoint="code/flow.py:process_image",
+    ).deploy(
         name="process-image",
         work_pool_name="time-orch",
         image=DockerImage(                            
