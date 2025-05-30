@@ -1,0 +1,15 @@
+# FROM python:3.13-slim
+
+# WORKDIR /app
+# COPY requirements-get.txt .
+# RUN pip install --no-cache-dir -r requirements-get.txt
+
+# COPY code/get.py .
+
+# # 在 8000 端口暴露 HTTP 接口
+# CMD ["uvicorn", "get:app", "--host", "0.0.0.0", "--port", "8000"]
+FROM python:3.13-slim
+
+COPY code/get.py /usr/local/bin/get.py
+RUN chmod +x /usr/local/bin/get.py
+CMD ["sleep", "infinity"]

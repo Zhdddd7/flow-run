@@ -1,0 +1,32 @@
+# server-values.yaml
+
+# 1) Turn off the bundled Postgres chart
+postgresql:
+  enabled: false
+
+#2) Tell Prefect to use your own Secret for DB creds
+secret:
+  create: false
+  name: prefect-db-credentials             # the DB name you created for Prefect              :contentReference[oaicite:4]{index=4}
+
+# 3) Expose via LoadBalancer
+service:
+  type: LoadBalancer
+  port: 4200
+  targetPort: 4200
+
+# 4) (Optional) Basic Auth for the UI
+server:
+  autoscaling:
+    enabled: false
+  basicAuth:
+    enabled: true
+    existingSecret: server-auth-secret
+  env:
+    - name: PREFECT_UI_API_URL
+      value: "/api"
+extraPipPackages:
+- prefect-gcp
+- google-cloud-pubsub
+
+

@@ -1,0 +1,4 @@
+prefect==3.13.1            
+google-cloud-functions    
+google-cloud-storage      
+google-auth               

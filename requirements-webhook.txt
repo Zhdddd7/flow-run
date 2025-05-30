@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+prefect==3.4.2           # 或你实际使用的 Prefect 版本
+google-cloud-functions # 如果你还需要用到 GCF context 类型
+google-auth            # GCP 认证

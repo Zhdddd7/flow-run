@@ -1,0 +1,8 @@
+prefect==3.4.2
+prefect-docker==0.6.5
+fastapi>=0.111.0,<1.0.0
+uvicorn==0.23.0
+python-dateutil==2.8.2
+tzdata>=2023.3
+python-multipart==0.0.6
+requests

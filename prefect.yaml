@@ -1,0 +1,11 @@
+flows:
+  - path: flow.py:time_flow
+
+deployments:
+  - name: time-flow
+    flow:
+      path: flow.py:time_flow
+    workPoolName: time-source
+    workQueueName: time-queue
+    infra:
+      type: process

@@ -1,0 +1,15 @@
+# FROM python:3.13-slim
+
+# WORKDIR /app
+# COPY requirements-convert.txt .
+# RUN pip install --no-cache-dir -r requirements-convert.txt
+
+# COPY code/convert.py .
+
+# CMD ["uvicorn", "convert:app", "--host", "0.0.0.0", "--port", "8001"]
+
+FROM python:3.10-slim
+RUN pip install pytz
+COPY code/convert.py /usr/local/bin/convert.py
+RUN chmod +x /usr/local/bin/convert.py
+CMD ["sleep","infinity"]
